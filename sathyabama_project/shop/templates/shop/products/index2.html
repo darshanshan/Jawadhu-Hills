@@ -1,0 +1,57 @@
+{% extends 'shop/layouts/main.html' %}
+{% block title %}
+JW | Online Shopping
+{% endblock title %}
+
+{% block content %}
+<section class="bg-light py-4 my-5" style="min-height:600px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h4 class="mb-3">{{category_name}} Products</h4>
+        <hr style="border-color:#b8bfc2;">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+            <li class="breadcrumb-item active">{{category_name}} Collections</li>
+          </ol>
+        </nav>
+        {% include 'shop/inc/message.html' %}
+      </div>
+      <section id="product">
+        <div class="product-container"> 
+          
+      {% for item in products %}
+       
+
+      
+
+            <div class="product-card">
+                <div class="product-image">
+                
+                   
+                    <img src="{{item.product_image.url}}" class="product-thumb" alt="">
+                    <button class="card-btn">
+                        <i class="fa fa-heart heart" aria-hidden="true"></i>
+                        <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                  <a href="{% url 'product_details' category_name item.name %}">
+                    <h4 class="product-brand">{{ item.name }}</h4>
+                    <p class="product-short-des">{{ item.description }}</p>
+                    <span class="price">Rs.{{ item.selling_price | stringformat:'d' }}</span><span class="actual-price">Rs.{{ item.original_price | stringformat:'d'}}</span>
+                </div></a>
+            </div>
+
+          
+
+          {% endfor %} 
+        </div> 
+        </section>
+      
+    </div>
+  </div>
+</section>
+ 
+{% endblock content %}

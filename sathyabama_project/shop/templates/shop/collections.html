@@ -1,0 +1,39 @@
+{% extends 'shop/layouts/main.html' %}
+{% block title %}
+  Registration |
+{% endblock title %}
+{% block content %}
+
+  <section class="bg-light py-4 my-5" style="min-height:600px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h4 class="mb-3">Categories</h4>
+          <hr style="border-color:#b8bfc2;">
+          {% include 'shop/inc/message.html' %}
+        </div>
+        {% for item in catagory %}
+        <div class="product-card">
+          <div class="product-image">
+              
+              <img src="{{item.image.url}}"class="product-thumb" alt="">
+              <button class="card-btn">
+                  <i class="fa fa-heart heart" aria-hidden="true"></i>
+                  <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
+              </button>
+          </div>
+          <div class="product-info">
+            <a href="{% url 'collections' item.name %}">
+            <h4 class="product-brand">{{ item.name }}</h4>
+            <p class="product-short-des">{{ item.description }}</p>
+           
+        </div>
+      </a>
+    </div>
+        {% endfor %}
+
+      </div>
+      </div>
+  </section>
+
+{% endblock content %}

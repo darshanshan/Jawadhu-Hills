@@ -1,0 +1,98 @@
+{% load static %}
+
+<nav id="navbar">
+  <img src="{% static 'images/logo1.png' %}" class="brand-logo" alt="">
+  <div class="nav-items">
+    <form class="form-inline my-2 my-lg-0" action="{% url 'searchproduct' %}" method="POST">
+      {% csrf_token %}
+
+      <div class="input-group">
+      <input name="productsearch" type="search" id="searchproducts" required class="form-control" placeholder="search" />
+      <div class="input-group-append">
+        <button class="btn btn-success" type="submit" id="button-addon2">Search</button>
+      </div>
+    </div>
+    </form>
+      {% if request.user.is_authenticated %}
+      <a href="#"><i class="far fa-user"></i>&nbsp;{{request.user}}</a>
+      {% endif %}
+      <a href="{% url 'favviewpage' %}"><i class="far fa-heart"></i></a>
+      <a href="{% url 'cart' %}"><i class="far fa-shopping-cart"></i></a>
+      <a href="#"><i class="fas fa-magnifying-glass"></i></a>
+      <!--<a href="#"><img src="img/wlist.png" alt=""></a>
+      <a href="#"><img src="img/cart.png"alt=""></a>
+      <a href="#"><img src="" class="profile" alt="" onerror=this.src="img/user.png"></a>-->
+      
+  </div>
+</nav>
+
+
+
+<div id="bottom-navbar">
+<ul id="bottom-nav-ele">
+  <li><a href="{% url 'home' %}">home</a></li>
+  <li><a class="{% if request.resolver_match.url_name == 'collections'%} active{% endif %}" href="{% url 'collections' %}">categories</a></li>
+  {% if request.user.is_authenticated %}
+  <li><a href="{% url 'logout' %}">Logout</a></li>
+  {% else %}
+  <li><a href="{% url 'login' %}">Login</a></li>
+  <li><a href="{% url 'register' %}">Register</a></li>
+  {% endif %}
+  <li><a href="{% url 'cart' %}">cart</a></li>
+  <li><a href="{% url 'favviewpage' %}">whishlist</a></li>
+  <li><a href="{% url 'myorders' %}">MyOrders</a></li>
+</ul>
+
+<!--<div class="dropdown">
+  <button class="dropbtn"><i id="bar" class="fas fa-outdent"></i></button>
+  <div class="dropdown-content">
+      <a href="index.html">home</a>
+      <a href="cat.html">categories</a>
+      <a href="x.html">xyz</a>
+      <a href="y.html">xyz</a>
+      <a href="z.html">xyz</a>
+  </div>
+</div>-->
+
+<div id="mobile">
+  <!--<div><i id="bar" class="fas fa-outdent"></i></div>-->
+  <div class="dropdown">
+      <button class="dropbtn"><i class="fas fa-outdent"></i></button>
+      <div class="dropdown-content">
+          <a href="index.html">home</a>
+          <a href="cat.html">categories</a>
+          <a href="x.html">xyz</a>
+          <a href="y.html">xyz</a>
+          <a href="z.html">xyz</a>
+      </div>
+  </div>
+
+  <div class="search">
+      <input type="text" class="search-box" placeholder="search product">
+      <button class="search-btn"><i class="fas fa-search"></i></button>
+  </div>
+</div>
+</div>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

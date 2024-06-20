@@ -1,0 +1,52 @@
+{% extends 'shop/layouts/main.html' %}
+{% block title %}
+Search
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Search Results for <span class="text-info"> "{{request.GET.query }}" </h3>
+      <hr>
+      <h3>hi</h3>
+      <h3>Search Results for <span class="text-info"> "{{request.GET.query }}" </h3>
+
+      {% for i in products %}
+      <div class="product">
+        <span class="badges">
+        <span class="new">New</span>
+        </span>
+        <div class="thumb">
+            <a href="single-product.html" class="image">
+                <img src="assets/images/product-image/1.webp" alt="Product" />
+                <img class="hover-image" src="assets/images/product-image/1.webp" alt="Product" />
+            </a>
+        </div>
+        <div class="content">
+            <span class="category"><a href="#">Accessories</a></span>
+            <h5 class="title"><a href="single-product.html">Modern Smart Phone
+                </a>
+            </h5>
+            <span class="price">
+            <span class="new">$38.50</span>
+            </span>
+        </div>
+        <div class="actions">
+            <button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i
+                class="pe-7s-shopbag"></i></button>
+            <button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i
+                    class="pe-7s-like"></i></button>
+            <button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>
+            <button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i
+                    class="pe-7s-refresh-2"></i></button>
+        </div>
+    </div>
+</div>
+{% endfor %}
+<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-30px">
+    </div>
+  </div>
+</div>
+
+{% endblock  %}

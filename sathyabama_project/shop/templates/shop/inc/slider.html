@@ -1,0 +1,65 @@
+{% load static %}
+<div id="slideshow-container">
+
+  <div class="mySlides fade">
+      <img src="{% static 'images/img1.jpg' %}" >
+      <div class="text">Caption</div>
+  </div>
+
+  <div class="mySlides fade">
+      <img src="{% static 'images/img2.jpg' %}" >
+      <div class="text">Caption</div>
+  </div>
+
+  <div class="mySlides fade">
+      <img src="{% static 'images/img3.jpg' %}" >
+      <div class="text">Caption</div>
+  </div>
+
+  <div class="mySlides fade">
+      <img src="{% static 'images/img4.jpg' %}" >
+      <div class="text">Caption</div>
+  </div>
+
+  <div class="mySlides fade">
+      <img src="{% static 'images/img5.jpg' %}" >
+      <div class="text">Caption</div>
+  </div>
+
+  <div class="mySlides fade">
+      <img src="{% static 'images/img6.jpg' %}" >
+      <div class="text">Caption</div>
+  </div>
+
+  <div class="mySlides fade">
+      <img src="{% static 'images/img7.jpg' %}" >
+      <div class="text">Caption</div>
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+
+<script>
+  var myIndex = 0;
+  carousel();
+  
+  function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";
+    setTimeout(carousel, 5000);  
+    
+  }
+
+  function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+</script>
